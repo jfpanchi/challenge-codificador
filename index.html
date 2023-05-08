@@ -9,28 +9,33 @@
 </head>
 <body>
 
-    <header>
-        <h1>a</h1>
+    <header class="header">
+        <h1 class="header__logo">a</h1>
     </header>
     
-    <main>
-        <section>
-            <input placeholder="Ingrese el texto aqui"></input>
-            <div>
-                <p>Solo letras minúsculas y sin acentos</p>
-                <button>Encriptar</button>
-                <button>Desencriptar</button>
+    <main class="main">
+        <section class="encriptador">
+            <input class="encriptador__texto" placeholder="Ingrese el texto aqui"></input>
+            <div class="encriptador__opciones">
+                <div class="opciones__info">
+                    <p class="info__icon">!</p>
+                    <p class="info__texto">Solo letras minúsculas y sin acentos</p>
+                </div>
+                <div class="opciones__botones">
+                    <button class="boton boton--oscuro">Encriptar</button>
+                    <button class="boton boton--claro">Desencriptar</button>
+                </div>
             </div>
         </section>
         
-        <section>
-            <img src="./assets/avatar--no-encontrado.png" alt="Ningún Mensaje Encontrado">
-            <p>Texto Codificado</p>
-            <button>Copiar</button>
+        <section class="resultado">
+            <!-- <img src="./assets/avatar--no-encontrado.png" alt="Ningún Mensaje Encontrado"> -->
+            <p class="resultado__texto">Texto Codificado</p>
+            <button class="boton boton--transparente">Copiar</button>
         </section>
     </main>
     
-    <footer>
+    <footer class="footer">
         <p> &copy; Jefferson Panchi</p>
     </footer>
 
