@@ -35,10 +35,10 @@ body {
 }
 
 .header__logo {
-    text-align: center;
-    font-size: 4rem;
-    font-weight: bold;
-    user-select: none;
+    width: 120px;
+    height: 48px;
+    position: relative;
+    margin: 1rem auto;
 }
 
 .main {
