@@ -17,15 +17,17 @@
     
     <main class="main">
         <section class="encriptador">
-            <input class="encriptador__texto" placeholder="Ingrese el texto aqui"></input>
+            <div class="encriptador__texto">
+                <textarea placeholder="Ingrese el texto aqui"></textarea>
+            </div>
             <div class="encriptador__opciones">
                 <div class="opciones__info">
                     <p class="info__icon">!</p>
-                    <p class="info__texto">Solo letras minúsculas y sin acentos</p>
+                    <p class="info__texto"> Solo letras minúsculas y sin acentos</p>
                 </div>
                 <div class="opciones__botones">
-                    <button class="boton boton--oscuro">Encriptar</button>
-                    <button class="boton boton--claro">Desencriptar</button>
+                    <button class="boton boton--oscuro" >Encriptar</button>
+                    <button class="boton boton--claro" disabled>Desencriptar</button>
                 </div>
             </div>
         </section>
