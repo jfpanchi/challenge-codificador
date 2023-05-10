@@ -33,9 +33,17 @@
         </section>
         
         <section class="resultado">
-            <!-- <img src="./assets/avatar--no-encontrado.png" alt="Ningún Mensaje Encontrado"> -->
-            <p class="resultado__texto">Texto Codificado</p>
-            <button class="boton boton--transparente">Copiar</button>
+            <div class="resultado__sin-texto">
+                <img class="sin-texto__imagen" class="resultado__sin-texto" src="./assets/avatar--no-encontrado.png" alt="Ningún Mensaje Encontrado">
+                <div class="sin-texto__mensaje">
+                    <h1>Ningún mensaje fue encontrado</h1>
+                    <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+                </div>
+            </div>
+            <div class="resultado__texto">
+                <textarea class="texto" disabled>Texto Codificado</textarea>
+                <button class="boton boton--transparente">Copiar</button>
+            </div>
         </section>
     </main>
     
