@@ -118,19 +118,15 @@ body {
   border: solid 1px var(--dark-blue-300);
 }
 
-.boton--oscuro {
+.boton--encriptar {
   color: white;
   background-color: var(--dark-blue-300);
   margin-right: 1rem;
 }
 
-.boton--claro {
+.boton--desencriptar {
   color: var(--dark-blue-300);
   background-color: transparent;
-}
-
-.boton--claro:disabled {
-  background-color: #d8dfe8;
 }
 
 .resultado {
@@ -186,7 +182,7 @@ body {
   resize: none;
 }
 
-.boton--transparente {
+.boton--copiar {
   width: 100%;
   color: var(--dark-blue-300);
   background-color: transparent;
