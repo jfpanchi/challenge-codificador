@@ -18,7 +18,7 @@
     <main class="main">
         <section class="encriptador">
             <div class="encriptador__texto">
-                <textarea placeholder="Ingrese el texto aqui" id="texto" onkeyup="ValidarTexto()"></textarea>
+                <textarea placeholder="Ingrese el texto aqui" id="texto" onkeyup="validarTexto()"></textarea>
             </div>
             <div class="encriptador__opciones">
                 <div class="opciones__info">
@@ -26,8 +26,8 @@
                     <p class="info__texto"> Solo letras minúsculas y sin acentos</p>
                 </div>
                 <div class="opciones__botones">
-                    <button class="boton boton--encriptar" onclick="Encriptar()" >Encriptar</button>
-                    <button class="boton boton--desencriptar" onclick="Desencriptar()">Desencriptar</button>
+                    <button class="boton boton--encriptar" onclick="encriptar()" >Encriptar</button>
+                    <button class="boton boton--desencriptar" onclick="desencriptar()">Desencriptar</button>
                 </div>
             </div>
         </section>
@@ -42,7 +42,7 @@
             </div>
             <div class="resultado__texto" id="resultado-con-texto">
                 <textarea id="resultado" disabled></textarea>
-                <button class="boton boton--copiar" onclick="Copiar()" >Copiar</button>
+                <button class="boton boton--copiar" onclick="copiar()" >Copiar</button>
             </div>
         </section>
     </main>
@@ -61,23 +61,12 @@
     const resultadoConTexto =  document.querySelector('#resultado-con-texto');
     const resultadoSinTexto =  document.querySelector('#resultado-sin-texto');
     
-    resultadoConTexto.style.display = 'none';
-
-    function ValidarTexto(){
-        if(texto.value != ''){
-            texto.value =  texto.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        } else {
-            resultadoConTexto.style.display = 'none';
-            resultadoSinTexto.style.display = '';
-        }
-    }
+    validarTexto();
     
-    function Encriptar(){
+    function encriptar(){
         if(texto.value != ''){
-            let textoSinEncriptar = texto.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            let textoEncriptado = '';
-           
-            textoEncriptado = textoSinEncriptar
+            const textoSinEncriptar = transformarTexto(texto);
+            const textoEncriptado = textoSinEncriptar
                 .replaceAll('e','enter')
                 .replaceAll('i','imes')
                 .replaceAll('a','ai')
@@ -86,20 +75,16 @@
     
             resultado.value = textoEncriptado;
             
-            resultadoConTexto.style.display = '';
-            resultadoSinTexto.style.display = 'none'
+            existeTexto(true);
         } else {
-            resultadoConTexto.style.display = 'none';
-            resultadoSinTexto.style.display = '';
+            existeTexto(false);
         }
     }
 
-    function Desencriptar(){
+    function desencriptar(){
         if(texto.value != ''){
-            let textoSinDesencriptar = texto.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            let textoDesencriptado = '';
-            
-            textoDesencriptado = textoSinDesencriptar
+            const textoSinDesencriptar = transformarTexto(texto);
+            const textoDesencriptado = textoSinDesencriptar
                 .replaceAll('enter','e')
                 .replaceAll('imes','i')
                 .replaceAll('ai','a')
@@ -108,6 +93,35 @@
     
             resultado.value = textoDesencriptado;
             
+            existeTexto(true);
+        } else {
+            existeTexto(false);
+        }
+    }
+
+    function copiar(){
+        const copyText = document.querySelector("#resultado");
+        copyText.disabled = false;
+        copyText.select();
+        document.execCommand("copy");
+        copyText.disabled = true;
+    }
+
+
+    function validarTexto(){
+        if(texto.value != ''){
+            texto.value =  transformarTexto(texto);
+        } else {
+            existeTexto(false);
+        }
+    }
+
+    function transformarTexto(texto){
+        return texto.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function existeTexto(existe){
+        if(existe){
             resultadoConTexto.style.display = '';
             resultadoSinTexto.style.display = 'none'
         } else {
@@ -115,14 +129,5 @@
             resultadoSinTexto.style.display = '';
         }
     }
-
-    function Copiar(){
-        let copyText = document.querySelector("#resultado");
-        copyText.disabled = false;
-        copyText.select();
-        document.execCommand("copy");
-        copyText.disabled = true;
-    }
-
     
 </script>
