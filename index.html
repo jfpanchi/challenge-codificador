@@ -41,8 +41,8 @@
                 </div>
             </div>
             <div class="resultado__texto" id="resultado-con-texto">
-                <textarea class="texto" id="resultado" disabled></textarea>
-                <button class="boton boton--copiar">Copiar</button>
+                <textarea id="resultado" disabled></textarea>
+                <button class="boton boton--copiar" onclick="Copiar()" >Copiar</button>
             </div>
         </section>
     </main>
@@ -74,7 +74,7 @@
     
     function Encriptar(){
         if(texto.value != ''){
-            let textoSinEncriptar = texto.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");;
+            let textoSinEncriptar = texto.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             let textoEncriptado = '';
            
             textoEncriptado = textoSinEncriptar
@@ -96,7 +96,7 @@
 
     function Desencriptar(){
         if(texto.value != ''){
-            let textoSinDesencriptar = texto.value;
+            let textoSinDesencriptar = texto.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             let textoDesencriptado = '';
             
             textoDesencriptado = textoSinDesencriptar
@@ -114,6 +114,14 @@
             resultadoConTexto.style.display = 'none';
             resultadoSinTexto.style.display = '';
         }
+    }
+
+    function Copiar(){
+        let copyText = document.querySelector("#resultado");
+        copyText.disabled = false;
+        copyText.select();
+        document.execCommand("copy");
+        copyText.disabled = true;
     }
 
     
