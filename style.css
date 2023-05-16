@@ -235,7 +235,7 @@ body {
 
   .resultado {
     width: 85%;
-    height: 25vh;
+    
     margin: 1rem auto;
     padding: 1rem;
   }
@@ -250,14 +250,13 @@ body {
   }
 
   .resultado__texto {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     padding: 0;
   }
 
   .resultado__texto textarea{
+    height: 20vh;
     padding-bottom: 1rem;
   }
 
