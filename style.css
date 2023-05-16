@@ -124,9 +124,19 @@ body {
   margin-right: 1rem;
 }
 
-.boton--desencriptar {
+.boton--encriptar:hover {
+  transition: 400ms;
+  background-color: var(--dark-blue-500);
+}
+
+.boton--desencriptar, .boton--copiar {
   color: var(--dark-blue-300);
-  background-color: transparent;
+  background-color: white;
+}
+
+.boton--desencriptar:hover, .boton--copiar:hover{
+  transition: 400ms;
+  background-color: var(--light-blue-200);
 }
 
 .resultado {
@@ -189,8 +199,6 @@ body {
 
 .boton--copiar {
   width: 100%;
-  color: var(--dark-blue-300);
-  background-color: transparent;
 }
 
 .footer {
