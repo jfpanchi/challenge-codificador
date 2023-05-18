@@ -248,7 +248,6 @@ body {
 
   .resultado {
     width: 85%;
-    
     margin: 1rem auto;
     padding: 1rem;
   }
@@ -274,8 +273,9 @@ body {
   }
 
   .footer {
-    right: 2rem;
-    top: 2rem;
+    display: flex;
+    position:static;
+    top: 0;
   }
 
 }
